@@ -8,7 +8,7 @@ MAKEFLAGS += --no-print-directory
 
 SCRIPT	:= $(wildcard toolchains/*.cmake)
 RECORD	:= $(patsubst toolchains/%.cmake,%,$(SCRIPT))
-TARGET	:= $(patsubst %,build/%/benchmark.exe,$(RECORD))
+TARGET	:= $(patsubst %,build/%/native.dll,$(RECORD))
 DEPEND	:= $(patsubst %,build/%/CMakeCache.txt,$(RECORD))
 DELETE	:= $(patsubst %,delete/%,$(RECORD))
 
@@ -16,14 +16,14 @@ all: $(TARGET)
 
 run: all $(RECORD)
 
-$(RECORD): %: build/%/benchmark.exe
-	$<
+$(RECORD): %: build/%/native.dll
+	cmake --build build/$* --target benchmark
 
 $(DEPEND): build/%/CMakeCache.txt: toolchains/%.cmake toolchains/%/lib/benchmark.lib CMakeLists.txt
-	cmake -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=$< -B $(@D)
+	cmake -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=$< -B build/$*
 
-$(TARGET): build/%/benchmark.exe: build/%/CMakeCache.txt src/main.cpp
-	cmake --build $(@D)
+$(TARGET): build/%/native.dll: build/%/CMakeCache.txt src/main.cpp
+	cmake --build build/$*
 
 format: toolchains/llvm/bin/clang.exe
 	cmake -P res/scripts/format.cmake
@@ -40,7 +40,7 @@ $(DELETE): delete/%:
 	cmake -E remove_directory toolchains/$*
 
 toolchains/src/llvm:
-	git clone --depth 1 https://github.com/llvm/llvm-project $@
+	git clone --depth 1 https://github.com/llvm/llvm-project toolchains/src/llvm
 
 toolchains/src/llvm/llvm-patch.log: \
   toolchains/src/llvm
@@ -144,11 +144,6 @@ toolchains/src/llvm-cxx-%-benchmark/CMakeCache.txt: \
 	  -DBENCHMARK_ENABLE_EXCEPTIONS=OFF \
 	  -B toolchains/src/llvm-cxx-$*-benchmark toolchains/src/benchmark-1.5.0
 
-.PRECIOUS: toolchains/llvm-cxx-%/lib/benchmark.lib
-toolchains/llvm-cxx-%/lib/benchmark.lib: \
-  toolchains/src/llvm-cxx-%-benchmark/CMakeCache.txt
-	cmake --build toolchains/src/llvm-cxx-$*-benchmark -t install
-
 .PRECIOUS: toolchains/src/llvm-stl-%-benchmark/CMakeCache.txt
 toolchains/src/llvm-stl-%-benchmark/CMakeCache.txt: \
   toolchains/llvm/bin/clang.exe \
@@ -162,11 +157,6 @@ toolchains/src/llvm-stl-%-benchmark/CMakeCache.txt: \
 	  -DBENCHMARK_ENABLE_EXCEPTIONS=OFF \
 	  -B toolchains/src/llvm-stl-$*-benchmark toolchains/src/benchmark-1.5.0
 
-.PRECIOUS: toolchains/llvm-stl-%/lib/benchmark.lib
-toolchains/llvm-stl-%/lib/benchmark.lib: \
-  toolchains/src/llvm-stl-%-benchmark/CMakeCache.txt
-	cmake --build toolchains/src/llvm-stl-$*-benchmark -t install
-
 .PRECIOUS: toolchains/src/msvc-stl-%-benchmark/CMakeCache.txt
 toolchains/src/msvc-stl-%-benchmark/CMakeCache.txt: \
   toolchains/src/benchmark-1.5.0
@@ -179,10 +169,10 @@ toolchains/src/msvc-stl-%-benchmark/CMakeCache.txt: \
 	  -DBENCHMARK_ENABLE_EXCEPTIONS=OFF \
 	  -B toolchains/src/msvc-stl-$*-benchmark toolchains/src/benchmark-1.5.0
 
-.PRECIOUS: toolchains/msvc-stl-%/lib/benchmark.lib
-toolchains/msvc-stl-%/lib/benchmark.lib: \
-  toolchains/src/msvc-stl-%-benchmark/CMakeCache.txt
-	cmake --build toolchains/src/msvc-stl-$*-benchmark -t install
+.PRECIOUS: toolchains/%/lib/benchmark.lib
+toolchains/%/lib/benchmark.lib: \
+  toolchains/src/%-benchmark/CMakeCache.txt
+	cmake --build toolchains/src/$*-benchmark -t install
 
 toolchains/src/benchmark-1.5.0: toolchains/src/benchmark-1.5.0.zip
 	cd toolchains/src && cmake -E tar xf benchmark-1.5.0.zip

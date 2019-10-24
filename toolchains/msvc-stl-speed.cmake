@@ -28,7 +28,7 @@ if(NOT _CMAKE_IN_TRY_COMPILE)
   set(CMAKE_C_FLAGS "${MSVC_FLAGS} /GL" CACHE STRING "")
 
   if(CMAKE_SOURCE_DIR MATCHES "toolchains/src/benchmark")
-    set(CMAKE_CXX_FLAGS "${MSVC_FLAGS} /GL /Zc:__cplusplus /permissive- /EHs-c- /D_EXCEPTIONS=0 /GR-" CACHE STRING "")
+    set(CMAKE_CXX_FLAGS "${MSVC_FLAGS} /GL /Zc:__cplusplus /permissive- /EHs-c- /D_HAS_EXCEPTIONS=0 /GR-" CACHE STRING "")
   else()
     set(CMAKE_CXX_FLAGS "${MSVC_FLAGS} /GL /Zc:__cplusplus /permissive- /EHsc /d2FH4 /GR" CACHE STRING "")
   endif()

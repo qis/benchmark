@@ -188,13 +188,13 @@ public:
     return &storage_.value;
   }
 
-  constexpr value_type& operator*()& noexcept
+  constexpr value_type& operator*() & noexcept
   {
     assert(storage_.error == error::success);
     return storage_.value;
   }
 
-  constexpr value_type&& operator*()&& noexcept
+  constexpr value_type&& operator*() && noexcept
   {
     assert(storage_.error == error::success);
     return std::move(storage_).value;
@@ -212,13 +212,13 @@ public:
     return storage_.value;
   }
 
-  constexpr value_type& value()& noexcept
+  constexpr value_type& value() & noexcept
   {
     assert(storage_.error == error::success);
     return storage_.value;
   }
 
-  constexpr value_type&& value()&& noexcept
+  constexpr value_type&& value() && noexcept
   {
     assert(storage_.error == error::success);
     return std::move(storage_).value;
