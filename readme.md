@@ -112,3 +112,20 @@ exception/failure       1613 ns         1611 ns       407273 msvc-stl-speed
 exception/failure       1594 ns         1604 ns       448000 msvc-stl-space
 -----------------------------------------------------------------------------------------
 ```
+
+Binary size.
+
+```
+456192 llvm-cxx-space-no-exceptions
+515584 llvm-cxx-space
+562176 llvm-cxx-speed-no-exceptions
+564736 llvm-stl-space-no-exceptions
+571392 llvm-stl-space
+589312 msvc-stl-space-no-exceptions
+591360 msvc-stl-space
+625152 llvm-stl-speed-no-exceptions
+633856 msvc-stl-speed-no-exceptions
+634880 msvc-stl-speed
+636928 llvm-stl-speed
+644096 llvm-cxx-speed
+```
