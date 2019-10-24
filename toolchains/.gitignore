@@ -1,0 +1,6 @@
+/*
+.*
+!/make/
+!/src/
+!/.gitignore
+!/*.cmake

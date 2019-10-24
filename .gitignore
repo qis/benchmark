@@ -1,0 +1,14 @@
+/*
+.*
+!/res/
+!/src/
+!/toolchains/
+!/.clang-format
+!/.editorconfig
+!/.gitattributes
+!/.gitignore
+!/CMakeLists.txt
+!/license.txt
+!/make.cmd
+!/makefile
+!/readme.md
