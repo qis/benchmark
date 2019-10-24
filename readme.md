@@ -13,13 +13,12 @@ The benchmarks currently support only Windows.
 ## Instructions
 Everything is handled by the [makefile](makefile).
 
-- The [make.cmd](make.cmd) script is a wrapper for [toolchains/make/make.exe](toolchains/make/make.exe).
-- The file `toolchains/make/make.exe` file is a copy of <http://www.equation.com/servlet/equation.cmd?fa=make>.
+- The [make.cmd](make.cmd) script is a wrapper for <http://www.equation.com/servlet/equation.cmd?fa=make>.
 - Running any make command except `make clean` will download and build [LLVM](https://llvm.org/).
 - Build and run all benchmarks with the `make run` command.
 
 ## Results
-Run on Intel Core i7-8700K.
+Intel Core i7-8700K.
 
 ```
 12 x 3696 MHz
