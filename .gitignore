@@ -2,12 +2,15 @@
 .*
 !/res/
 !/src/
+!/submodules/
 !/toolchains/
 !/.clang-format
 !/.editorconfig
 !/.gitattributes
 !/.gitignore
+!/.gitmodules
 !/CMakeLists.txt
+!/CMakeSettings.json
 !/license.txt
 !/make.cmd
 !/makefile

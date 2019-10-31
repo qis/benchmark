@@ -1,12 +1,22 @@
 #pragma once
 #include <error.hpp>
 #include <utility.hpp>
-#include <experimental/coroutine>
 #include <intrin.h>
 #include <new>
 #include <type_traits>
 #include <utility>
 #include <cassert>
+
+#if defined(__clang__) && defined(_MSVC_STL_VERSION)
+#define USE_PORTABLE_COROUTINE_HANDLE
+#include <frame.h>
+#else
+#include <experimental/coroutine>
+#endif
+
+using std::experimental::coroutine_handle;
+using std::experimental::suspend_always;
+using std::experimental::suspend_never;
 
 namespace detail {
 
@@ -109,12 +119,12 @@ public:
   struct promise_type {
     constexpr auto initial_suspend() const noexcept
     {
-      return std::experimental::suspend_never{};
+      return suspend_never{};
     }
 
     constexpr auto final_suspend() const noexcept
     {
-      return std::experimental::suspend_never{};
+      return suspend_never{};
     }
 
     result get_return_object() noexcept
@@ -247,7 +257,7 @@ public:
   }
 
   template <typename Promise>
-  bool await_suspend(std::experimental::coroutine_handle<Promise> handle) noexcept
+  bool await_suspend(coroutine_handle<Promise> handle) noexcept
   {
     assert(storage_.error != error::success);
 #if !defined(NDEBUG)
@@ -279,12 +289,12 @@ public:
   struct promise_type {
     constexpr auto initial_suspend() const noexcept
     {
-      return std::experimental::suspend_never{};
+      return suspend_never{};
     }
 
     constexpr auto final_suspend() const noexcept
     {
-      return std::experimental::suspend_never{};
+      return suspend_never{};
     }
 
     result get_return_object() noexcept
@@ -358,7 +368,7 @@ public:
   }
 
   template <typename Promise>
-  bool await_suspend(std::experimental::coroutine_handle<Promise> handle) noexcept
+  bool await_suspend(coroutine_handle<Promise> handle) noexcept
   {
     assert(error_ != error::success);
 #if !defined(NDEBUG)

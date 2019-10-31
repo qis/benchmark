@@ -6,6 +6,7 @@ target_include_directories(native PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 add_library(common INTERFACE)
 target_include_directories(common INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+target_include_directories(common INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/submodules/coroutine/interface/coroutine)
 target_compile_definitions(common INTERFACE _UNICODE UNICODE WIN32_LEAN_AND_MEAN NOMINMAX)
 target_compile_definitions(common INTERFACE TOOLCHAIN_NAME="${TOOLCHAIN_NAME}")
 target_link_libraries(common INTERFACE native)
@@ -22,10 +23,7 @@ macro(add_benchmark source)
   add_custom_command(TARGET benchmark POST_BUILD COMMAND $<TARGET_FILE:${target}> USES_TERMINAL)
 endmacro()
 
-if(TOOLCHAIN_HAS_COROUTINES)
-  add_benchmark(src/benchmark/co_result.cpp)
-endif()
-
+add_benchmark(src/benchmark/co_result.cpp)
 add_benchmark(src/benchmark/error_code.cpp)
 
 if(TOOLCHAIN_HAS_EXCEPTIONS)

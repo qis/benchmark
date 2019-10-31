@@ -30,71 +30,79 @@ L3 Unified 12582K (x1)
 --------------------------------------------------------------------
 Benchmark                Time      CPU  Toolchain
 --------------------------------------------------------------------
-co_result/success     1.28 ns  1.26 ns  llvm-cxx-speed-no-exceptions
-co_result/success     1.28 ns  1.28 ns  llvm-cxx-space-no-exceptions
-co_result/success     1.28 ns  1.29 ns  llvm-cxx-space
-exception/success     1.49 ns  1.46 ns  llvm-cxx-speed
-co_result/success     1.50 ns  1.50 ns  llvm-cxx-speed
-exception/success     1.49 ns  1.51 ns  llvm-stl-speed
-exception/success     1.76 ns  1.76 ns  llvm-cxx-space
-exception/success     1.76 ns  1.76 ns  llvm-stl-space
-exception/success     2.12 ns  2.13 ns  msvc-stl-speed
-error_code/success    2.34 ns  2.35 ns  llvm-cxx-speed-no-exceptions
-error_code/success    2.50 ns  2.51 ns  llvm-cxx-speed
-system_error/success  2.55 ns  2.57 ns  llvm-cxx-speed
-system_error/success  2.72 ns  2.70 ns  llvm-cxx-space
-exception/success     2.79 ns  2.83 ns  msvc-stl-space
-error_code/success    3.56 ns  3.53 ns  llvm-cxx-space
-error_code/success    4.51 ns  4.59 ns  llvm-cxx-space-no-exceptions
-system_error/success  6.62 ns  6.56 ns  llvm-stl-speed
-system_error/success  6.81 ns  6.80 ns  msvc-stl-speed
-system_error/success  6.98 ns  6.98 ns  llvm-stl-space
-system_error/success  8.43 ns  8.37 ns  msvc-stl-space
-error_code/success    9.98 ns  10.0 ns  msvc-stl-speed-no-exceptions
-error_code/success    10.4 ns  10.5 ns  msvc-stl-speed
-error_code/success    11.0 ns  10.9 ns  llvm-stl-speed
-error_code/success    11.0 ns  11.0 ns  msvc-stl-space-no-exceptions
-error_code/success    11.1 ns  11.2 ns  llvm-stl-speed-no-exceptions
-error_code/success    11.9 ns  12.0 ns  llvm-stl-space-no-exceptions
-error_code/success    12.3 ns  12.3 ns  llvm-stl-space
-error_code/success    12.3 ns  12.3 ns  msvc-stl-space
-co_result/success     50.2 ns  50.0 ns  msvc-stl-space-no-exceptions
-co_result/success     50.5 ns  50.0 ns  msvc-stl-speed
-co_result/success     50.0 ns  50.2 ns  msvc-stl-speed-no-exceptions
-co_result/success     51.1 ns  50.2 ns  msvc-stl-space
+co_result/success     1.42 ns  1.42 ns  llvm-stl-space
+co_result/success     1.45 ns  1.46 ns  llvm-stl-space-no-exceptions
+co_result/success     1.49 ns  1.50 ns  llvm-cxx-space
+exception/success     1.49 ns  1.50 ns  llvm-stl-speed
+co_result/success     1.50 ns  1.50 ns  llvm-stl-speed
+co_result/success     1.51 ns  1.50 ns  llvm-cxx-speed-no-exceptions
+co_result/success     1.63 ns  1.65 ns  llvm-stl-speed-no-exceptions
+co_result/success     1.67 ns  1.67 ns  llvm-cxx-space-no-exceptions
+co_result/success     1.77 ns  1.76 ns  llvm-cxx-speed
+exception/success     1.84 ns  1.85 ns  llvm-cxx-speed
+exception/success     1.99 ns  1.99 ns  llvm-stl-space
+exception/success     2.11 ns  2.13 ns  llvm-cxx-space
+exception/success     2.28 ns  2.25 ns  msvc-stl-speed
+error_code/success    2.52 ns  2.49 ns  llvm-cxx-speed-no-exceptions
+error_code/success    2.90 ns  2.85 ns  llvm-cxx-speed
+system_error/success  3.10 ns  3.07 ns  llvm-cxx-space
+exception/success     3.07 ns  3.15 ns  msvc-stl-space
+system_error/success  3.19 ns  3.25 ns  llvm-cxx-speed
+error_code/success    3.43 ns  3.45 ns  llvm-cxx-space-no-exceptions
+error_code/success    3.92 ns  3.92 ns  llvm-cxx-space
+system_error/success  6.67 ns  6.63 ns  llvm-stl-speed
+system_error/success  7.34 ns  7.32 ns  llvm-stl-space
+system_error/success  8.05 ns  7.95 ns  msvc-stl-speed
+system_error/success  9.07 ns  9.21 ns  msvc-stl-space
+error_code/success    10.3 ns  10.3 ns  llvm-stl-speed
+error_code/success    11.2 ns  11.0 ns  msvc-stl-speed
+error_code/success    11.3 ns  11.4 ns  msvc-stl-space-no-exceptions
+error_code/success    11.7 ns  11.7 ns  msvc-stl-speed-no-exceptions
+error_code/success    11.8 ns  11.7 ns  llvm-stl-speed-no-exceptions
+error_code/success    13.1 ns  13.2 ns  llvm-stl-space-no-exceptions
+error_code/success    13.9 ns  14.1 ns  msvc-stl-space
+error_code/success    14.4 ns  14.5 ns  llvm-stl-space
+co_result/success     50.3 ns  50.2 ns  msvc-stl-speed
+co_result/success     53.7 ns  54.4 ns  msvc-stl-space
+co_result/success     54.0 ns  54.4 ns  msvc-stl-speed-no-exceptions
+co_result/success     55.9 ns  55.8 ns  msvc-stl-space-no-exceptions
 --------------------------------------------------------------------
-co_result/failure     1.06 ns  1.07 ns  llvm-cxx-speed-no-exceptions
-co_result/failure     1.27 ns  1.26 ns  llvm-cxx-speed
-co_result/failure     1.49 ns  1.46 ns  llvm-cxx-space-no-exceptions
-co_result/failure     1.51 ns  1.51 ns  llvm-cxx-space
-error_code/failure    1.91 ns  1.90 ns  llvm-cxx-speed
-error_code/failure    1.92 ns  1.90 ns  llvm-cxx-speed-no-exceptions
-error_code/failure    3.02 ns  3.05 ns  llvm-cxx-space
-error_code/failure    4.71 ns  4.71 ns  llvm-cxx-space-no-exceptions
-error_code/failure    9.90 ns  9.84 ns  msvc-stl-speed-no-exceptions
-error_code/failure    10.2 ns  10.0 ns  llvm-stl-speed
-error_code/failure    10.2 ns  10.0 ns  msvc-stl-speed
-error_code/failure    10.2 ns  10.3 ns  llvm-stl-speed-no-exceptions
-error_code/failure    10.6 ns  10.5 ns  msvc-stl-space-no-exceptions
-error_code/failure    11.3 ns  11.2 ns  llvm-stl-space
-error_code/failure    11.4 ns  11.5 ns  msvc-stl-space
-error_code/failure    11.6 ns  11.7 ns  llvm-stl-space-no-exceptions
-co_result/failure     51.1 ns  50.2 ns  msvc-stl-space-no-exceptions
-co_result/failure     51.5 ns  51.6 ns  msvc-stl-speed
-co_result/failure     51.5 ns  51.6 ns  msvc-stl-speed-no-exceptions
-co_result/failure     52.4 ns  53.1 ns  msvc-stl-space
-exception/failure     1523 ns  1500 ns  llvm-stl-space
-exception/failure     1546 ns  1535 ns  llvm-cxx-space
-exception/failure     1552 ns  1569 ns  llvm-cxx-speed
-exception/failure     1559 ns  1569 ns  llvm-stl-speed
-exception/failure     1597 ns  1604 ns  msvc-stl-space
-exception/failure     1609 ns  1611 ns  msvc-stl-speed
-system_error/failure  1602 ns  1604 ns  llvm-cxx-speed
-system_error/failure  1612 ns  1604 ns  llvm-stl-speed
-system_error/failure  1642 ns  1639 ns  llvm-stl-space
-system_error/failure  1642 ns  1650 ns  llvm-cxx-space
-system_error/failure  1714 ns  1726 ns  msvc-stl-space
-system_error/failure  1729 ns  1726 ns  msvc-stl-speed
+co_result/failure     1.20 ns  1.19 ns  llvm-cxx-speed-no-exceptions
+co_result/failure     1.39 ns  1.38 ns  llvm-stl-space-no-exceptions
+co_result/failure     1.47 ns  1.46 ns  llvm-cxx-speed
+co_result/failure     1.50 ns  1.50 ns  llvm-stl-speed-no-exceptions
+co_result/failure     1.54 ns  1.53 ns  llvm-stl-speed
+co_result/failure     1.72 ns  1.72 ns  llvm-cxx-space
+co_result/failure     1.75 ns  1.73 ns  llvm-stl-space
+co_result/failure     1.75 ns  1.76 ns  llvm-cxx-space-no-exceptions
+error_code/failure    2.14 ns  2.15 ns  llvm-cxx-speed-no-exceptions
+error_code/failure    2.20 ns  2.18 ns  llvm-cxx-speed
+error_code/failure    3.27 ns  3.22 ns  llvm-cxx-space-no-exceptions
+error_code/failure    3.50 ns  3.45 ns  llvm-cxx-space
+error_code/failure    10.9 ns  11.0 ns  msvc-stl-speed-no-exceptions
+error_code/failure    11.2 ns  11.2 ns  llvm-stl-speed
+error_code/failure    11.4 ns  11.2 ns  llvm-stl-speed-no-exceptions
+error_code/failure    11.7 ns  11.6 ns  msvc-stl-speed
+error_code/failure    12.5 ns  12.6 ns  llvm-stl-space-no-exceptions
+error_code/failure    12.6 ns  12.6 ns  msvc-stl-space-no-exceptions
+error_code/failure    13.0 ns  13.1 ns  msvc-stl-space
+error_code/failure    13.2 ns  13.1 ns  llvm-stl-space
+co_result/failure     54.5 ns  54.4 ns  msvc-stl-speed
+co_result/failure     56.4 ns  55.8 ns  msvc-stl-space-no-exceptions
+co_result/failure     57.0 ns  57.2 ns  msvc-stl-speed-no-exceptions
+co_result/failure     58.2 ns  58.6 ns  msvc-stl-space
+exception/failure     1689 ns  1674 ns  msvc-stl-space
+exception/failure     1692 ns  1674 ns  llvm-cxx-speed
+exception/failure     1683 ns  1688 ns  llvm-stl-space
+exception/failure     1704 ns  1726 ns  llvm-cxx-space
+system_error/failure  1796 ns  1758 ns  llvm-stl-speed
+exception/failure     1769 ns  1803 ns  llvm-stl-speed
+exception/failure     1808 ns  1814 ns  msvc-stl-speed
+system_error/failure  1827 ns  1842 ns  llvm-stl-space
+system_error/failure  1829 ns  1842 ns  llvm-cxx-speed
+system_error/failure  1836 ns  1842 ns  llvm-cxx-space
+system_error/failure  1922 ns  1904 ns  msvc-stl-space
+system_error/failure  1960 ns  1950 ns  msvc-stl-speed
 --------------------------------------------------------------------
 ```
 
@@ -109,6 +117,8 @@ Binary size.
 516608 llvm-cxx-space/system_error
 562688 llvm-cxx-speed-no-exceptions/co_result
 567296 llvm-cxx-speed-no-exceptions/error_code
+570880 llvm-stl-space-no-exceptions/co_result
+570880 llvm-stl-space/co_result
 571392 llvm-stl-space/exception
 572416 llvm-stl-space-no-exceptions/error_code
 575488 llvm-stl-space/error_code
@@ -124,13 +134,15 @@ Binary size.
 633856 msvc-stl-speed/exception
 634368 msvc-stl-speed/co_result
 635904 msvc-stl-speed/error_code
+636416 llvm-stl-speed-no-exceptions/co_result
+636416 llvm-stl-speed/co_result
 636416 msvc-stl-speed/system_error
 636928 llvm-stl-speed/exception
-638464 llvm-stl-speed-no-exceptions/error_code
+638976 llvm-stl-speed-no-exceptions/error_code
 642048 llvm-stl-speed/error_code
 642560 llvm-cxx-speed/co_result
 643072 llvm-cxx-speed/exception
 644096 llvm-cxx-speed/error_code
 645120 llvm-cxx-speed/system_error
-645632 llvm-stl-speed/system_error
+645120 llvm-stl-speed/system_error
 ```
