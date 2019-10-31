@@ -1,0 +1,26 @@
+{
+  "configurations": [
+    {
+      "name": "Release",
+      "generator": "Ninja",
+      "configurationType": "Release",
+      "inheritEnvironments": [ "clang_cl_x64" ],
+      "cmakeExecutable": "C:\\Program Files\\CMake\\bin\\cmake.exe",
+      "cmakeToolchain": "${projectDir}\\toolchains\\llvm-stl-space-no-exceptions.cmake",
+      "installRoot": "${projectDir}\\install\\vs",
+      "buildRoot": "${projectDir}\\build\\vs",
+      "variables": [
+        {
+          "name": "CMAKE_C_COMPILER",
+          "value": "${projectDir}\\toolchains\\llvm\\bin\\clang.exe",
+          "type": "STRING"
+        },
+        {
+          "name": "CMAKE_CXX_COMPILER",
+          "value": "${projectDir}\\toolchains\\llvm\\bin\\clang++.exe",
+          "type": "STRING"
+        }
+      ]
+    }
+  ]
+}

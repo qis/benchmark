@@ -1,0 +1,3 @@
+[submodule "submodules/coroutine"]
+	path = submodules/coroutine
+	url = https://github.com/luncliff/coroutine
